@@ -1,0 +1,18 @@
+GIT_URI="git://github.com/MyLifeLabs/wcl.git"
+GIT_TAG="v${PV}"
+inherit ocaml git
+
+
+HOMEPAGE="https://github.com/MyLifeLabs/wcl"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dodir /usr/bin
+	cygmake install PREFIX=${D}/usr
+}

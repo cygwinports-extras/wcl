@@ -3,7 +3,7 @@ GIT_TAG="v${PV}"
 inherit ocaml git
 
 NAME="wcl"
-VERSION=1.0.0
+VERSION=1.1.0
 RELEASE=1
 CATEGORY="Utils"
 SUMMARY="Replacement for 'wc -l', especially for large files"

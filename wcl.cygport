@@ -1,0 +1,26 @@
+GIT_URI="git://github.com/MyLifeLabs/wcl.git"
+GIT_TAG="v${PV}"
+inherit ocaml git
+
+NAME="wcl"
+VERSION=1.0.0
+RELEASE=1
+CATEGORY="Utils"
+SUMMARY="Replacement for 'wc -l', especially for large files"
+DESCRIPTION="wcl is a replacement for 'wc -l' useful for interactive use with
+large data files. Like 'wc -l' it counts the number of lines in files and
+displays the total. Unlike 'wc -l', wcl displays a progress meter and an
+estimate of the total number of lines as it progresses."
+HOMEPAGE="https://github.com/MyLifeLabs/wcl"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	dodir /usr/bin
+	cygmake install PREFIX=${D}/usr
+}
